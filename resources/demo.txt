@@ -1,0 +1,13 @@
+cargo build --release
+cargo test
+./target/release/spam-classifier help
+./target/release/spam-classifier  --message "Hi Joe, how are you?"
+./target/release/spam-classifier  --message "Free ice cream for everybody!"
+./target/release/spam-classifier  --message-from-file ./resources/testSpam.txt
+./target/release/spam-classifier  --message-from-file ./resources/testHam.txt
+./target/release/spam-classifier  create-model-from-dataset --dataset-path ./resources/SMSSpamCollection --model-path ./resources/model2.json
+./target/release/spam-classifier  --from-model ./resources/model2.json --message "Hi Joe, how are you?"
+./target/release/spam-classifier clean-cache
+./target/release/spam-classifier  --message-from-file ./resources/largeTestFileHam.txt
+./target/release/spam-classifier  --message "Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!Free ice cream!"
+./target/release/spam-classifier  --message-from-file ./resources/largeTestFileSpam.txt
